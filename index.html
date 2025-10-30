@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kusha Family Restaurant</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff9933, #ffcc80);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    header p {
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .menu-section {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #4a2c00;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      margin-bottom: 5px;
+      color: #ff6600;
+    }
+
+    .card-content p {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .contact {
+      background-color: rgba(255,255,255,0.9);
+      padding: 30px;
+      text-align: center;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: #fff;
+      background-color: #4a2c00;
+      margin-top: 20px;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: #fff;
+      border: none;
+      padding: 15px 18px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .whatsapp-button:hover {
+      background-color: #20b85b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kusha Family Restaurant</h1>
+    <p>Mauhari, Between Satna - Panna Road | Near Mauhari Toll Plaza</p>
+    <p>Open 10:00 AM – 2:00 AM | Call: 8770473265</p>
+  </header>
+
+  <section class="menu-section">
+    <h2>Our Menu</h2>
+
+    <h3 style="text-align:center;margin-bottom:10px;">Paneer Dishes</h3>
+    <div class="menu-grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1601050690597-0e6825f2f7f9" alt="Paneer Butter Masala">
+        <div class="card-content">
+          <h3>Paneer Butter Masala</h3>
+          <p>₹150</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1631896570151-2f31e173f61a" alt="Shahi Paneer">
+        <div class="card-content">
+          <h3>Shahi Paneer</h3>
+          <p>₹170</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="text-align:center;margin:25px 0 10px;">Rice & Biryani</h3>
+    <div class="menu-grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f" alt="Veg Biryani">
+        <div class="card-content">
+          <h3>Veg Biryani</h3>
+          <p>₹130</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1626777768989-9fdce9b4c7c4" alt="Jeera Rice">
+        <div class="card-content">
+          <h3>Jeera Rice</h3>
+          <p>₹100</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example for adding new category:
+    <h3 style="text-align:center;margin:25px 0 10px;">New Category Name</h3>
+    <div class="menu-grid">
+      <div class="card">
+        <img src="IMAGE_URL" alt="Dish Name">
+        <div class="card-content">
+          <h3>Dish Name</h3>
+          <p>₹Price</p>
+        </div>
+      </div>
+    </div>
+    -->
+  </section>
+
+  <div class="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Mauhari, Satna–Panna Road, Near Mauhari Toll Plaza</p>
+    <p>📞 8770473265 | ✉ kushafamily8770@gmail.com</p>
+    <p>🕙 Open from 10:00 AM to 2:00 AM</p>
+  </div>
+
+  <footer>
+    © 2025 Kusha Family Restaurant | All Rights Reserved
+  </footer>
+
+  <a href="https://wa.me/918770473265" target="_blank">
+    <button class="whatsapp-button">💬</button>
+  </a>
+</body>
+</html>

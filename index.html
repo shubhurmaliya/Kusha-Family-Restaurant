@@ -3,165 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kusha Family Restaurant</title>
+  <title>Kusha Family Restaurant | Menu</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(120deg, #fff8e1, #ffe0b2);
       margin: 0;
-      padding: 0;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8ef;
+      color: #222;
     }
-
     header {
-      background-color: #ff9800;
-      color: white;
       text-align: center;
-      padding: 20px 0;
-      font-size: 2em;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background: linear-gradient(90deg, #ff9a00, #ff7300);
+      color: white;
+      padding: 20px 10px;
     }
-
-    .menu-section {
-      max-width: 800px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 20px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
     }
-
     h2 {
-      color: #e65100;
-      border-bottom: 2px solid #ffb74d;
+      text-align: center;
+      color: #ff7300;
+      margin-top: 40px;
+      font-size: 2rem;
+      border-bottom: 2px solid #ff7300;
+      display: inline-block;
       padding-bottom: 5px;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
+    .menu-category {
+      margin: 40px auto;
+      max-width: 900px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px 40px;
     }
-
-    th, td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dotted #ccc;
+      padding: 8px 0;
+      font-size: 1.05rem;
     }
-
-    th {
-      background-color: #ffe0b2;
+    .menu-item:last-child {
+      border-bottom: none;
     }
-
-    tr:hover {
-      background-color: #fff3e0;
-    }
-
     footer {
       text-align: center;
-      padding: 15px;
-      background-color: #ff9800;
+      background: #ff7300;
       color: white;
-      margin-top: 30px;
-      font-size: 14px;
+      padding: 15px 0;
+      margin-top: 40px;
     }
-
     @media (max-width: 600px) {
-      body {
-        font-size: 14px;
+      .menu-category {
+        padding: 15px 20px;
       }
-      header {
-        font-size: 1.5em;
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-item span {
+        margin-top: 4px;
+        font-weight: bold;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>Kusha Family Restaurant</header>
+  <header>
+    <h1>Kusha Family Restaurant</h1>
+    <p>Satna - Panna Road | Indian Veg Cuisine</p>
+  </header>
 
-  <div class="menu-section">
-    <h2>Dal Items</h2>
-    <table>
-      <tr><th>Dish</th><th>Final Rate (₹)</th></tr>
-      <tr><td>Dal Fry</td><td>129</td></tr>
-      <tr><td>Dal Tadka</td><td>149</td></tr>
-      <tr><td>Dal Makhani</td><td>149</td></tr>
-      <tr><td>Dal Panchratna</td><td>149</td></tr>
-      <tr><td>Mix Dal</td><td>149</td></tr>
-      <tr><td>Dal Butter Fry</td><td>149</td></tr>
-      <tr><td>Dal Butter Tadka</td><td>149</td></tr>
-    </table>
-  </div>
+  <!-- DAL SECTION -->
+  <section class="menu-category">
+    <h2>Dal</h2>
+    <div class="menu-item"><p>Dal Fry</p><span>₹129</span></div>
+    <div class="menu-item"><p>Dal Tadka</p><span>₹149</span></div>
+    <div class="menu-item"><p>Dal Makhani</p><span>₹149</span></div>
+    <div class="menu-item"><p>Chana Masala</p><span>₹149</span></div>
+    <div class="menu-item"><p>Mix Veg</p><span>₹149</span></div>
+    <div class="menu-item"><p>Bhindi Masala</p><span>₹149</span></div>
+    <div class="menu-item"><p>Aloo Gobhi Masala</p><span>₹149</span></div>
+    <div class="menu-item"><p>Aloo Matar</p><span>₹149</span></div>
+    <div class="menu-item"><p>Aloo Tamatar</p><span>₹149</span></div>
+    <div class="menu-item"><p>Aloo Jeera</p><span>₹149</span></div>
+    <div class="menu-item"><p>Aloo Shimla Mirch</p><span>₹149</span></div>
+    <div class="menu-item"><p>Aloo Baingan</p><span>₹149</span></div>
+    <div class="menu-item"><p>Baingan Bharta</p><span>₹169</span></div>
+  </section>
 
-  <div class="menu-section">
-    <h2>Rice Items</h2>
-    <table>
-      <tr><th>Dish</th><th>Final Rate (₹)</th></tr>
-      <tr><td>Plain Rice</td><td>99</td></tr>
-      <tr><td>Jeera Rice</td><td>109</td></tr>
-      <tr><td>Matar Pulao</td><td>139</td></tr>
-      <tr><td>Veg Biryani</td><td>159</td></tr>
-    </table>
-  </div>
+  <!-- RICE SECTION -->
+  <section class="menu-category">
+    <h2>Rice</h2>
+    <div class="menu-item"><p>Plain Rice</p><span>₹99</span></div>
+    <div class="menu-item"><p>Jeera Rice</p><span>₹119</span></div>
+    <div class="menu-item"><p>Matta Pulav</p><span>₹139</span></div>
+    <div class="menu-item"><p>Veg Biryani</p><span>₹159</span></div>
+  </section>
 
-  <div class="menu-section">
-    <h2>Paneer Sabji</h2>
-    <table>
-      <tr><th>Dish</th><th>Final Rate (₹)</th></tr>
-      <tr><td>Chhola Paneer</td><td>189</td></tr>
-      <tr><td>Matar Paneer</td><td>189</td></tr>
-      <tr><td>Paneer Masala</td><td>189</td></tr>
-      <tr><td>Paneer Butter Masala</td><td>209</td></tr>
-      <tr><td>Palak Paneer</td><td>209</td></tr>
-      <tr><td>Paneer Do Pyaza</td><td>219</td></tr>
-      <tr><td>Kadhai Paneer</td><td>219</td></tr>
-      <tr><td>Handi Paneer</td><td>219</td></tr>
-      <tr><td>Shahi Paneer</td><td>240</td></tr>
-      <tr><td>Kaju Masala</td><td>249</td></tr>
-      <tr><td>Kaju Butter Masala</td><td>299</td></tr>
-      <tr><td>Kaju Paneer</td><td>299</td></tr>
-    </table>
-  </div>
+  <!-- PANEER SECTION -->
+  <section class="menu-category">
+    <h2>Paneer Special</h2>
+    <div class="menu-item"><p>Chhola Paneer</p><span>₹189</span></div>
+    <div class="menu-item"><p>Matar Paneer</p><span>₹189</span></div>
+    <div class="menu-item"><p>Paneer Masala</p><span>₹189</span></div>
+    <div class="menu-item"><p>Paneer Butter Masala</p><span>₹199</span></div>
+    <div class="menu-item"><p>Palak Paneer</p><span>₹199</span></div>
+    <div class="menu-item"><p>Paneer Do Pyaza</p><span>₹219</span></div>
+    <div class="menu-item"><p>Kadhai Paneer</p><span>₹219</span></div>
+    <div class="menu-item"><p>Handi Paneer</p><span>₹219</span></div>
+    <div class="menu-item"><p>Shahi Paneer</p><span>₹240</span></div>
+    <div class="menu-item"><p>Kaju Masala</p><span>₹249</span></div>
+    <div class="menu-item"><p>Kaju Butter Masala</p><span>₹299</span></div>
+    <div class="menu-item"><p>Kaju Paneer</p><span>₹299</span></div>
+  </section>
 
-  <div class="menu-section">
+  <!-- PAPAD SECTION -->
+  <section class="menu-category">
     <h2>Papad</h2>
-    <table>
-      <tr><th>Dish</th><th>Final Rate (₹)</th></tr>
-      <tr><td>Plain Papad</td><td>19</td></tr>
-      <tr><td>Masala Papad</td><td>25</td></tr>
-      <tr><td>Fry Papad</td><td>25</td></tr>
-    </table>
-  </div>
+    <div class="menu-item"><p>Plain Papad</p><span>₹19</span></div>
+    <div class="menu-item"><p>Masala Papad</p><span>₹25</span></div>
+    <div class="menu-item"><p>Fry Papad</p><span>₹25</span></div>
+  </section>
 
-  <div class="menu-section">
-    <h2>Roti / Paratha</h2>
-    <table>
-      <tr><th>Dish</th><th>Final Rate (₹)</th></tr>
-      <tr><td>Tandoori Roti</td><td>15</td></tr>
-      <tr><td>Tandoori Butter Roti</td><td>20</td></tr>
-      <tr><td>Tawa Roti</td><td>15</td></tr>
-      <tr><td>Tawa Butter Roti</td><td>20</td></tr>
-      <tr><td>Naan Roti</td><td>45</td></tr>
-      <tr><td>Naan Butter</td><td>45</td></tr>
-      <tr><td>Laccha Parantha</td><td>45</td></tr>
-      <tr><td>Missi Roti</td><td>35</td></tr>
-      <tr><td>Aaloo Parantha</td><td>55</td></tr>
-      <tr><td>Paneer Parantha</td><td>75</td></tr>
-    </table>
-  </div>
+  <!-- ROTI SECTION -->
+  <section class="menu-category">
+    <h2>Roti & Paratha</h2>
+    <div class="menu-item"><p>Tandoori Roti</p><span>₹15</span></div>
+    <div class="menu-item"><p>Tandoori Butter Roti</p><span>₹20</span></div>
+    <div class="menu-item"><p>Tawa Roti</p><span>₹15</span></div>
+    <div class="menu-item"><p>Tawa Butter Roti</p><span>₹20</span></div>
+    <div class="menu-item"><p>Naan</p><span>₹45</span></div>
+    <div class="menu-item"><p>Naan Butter</p><span>₹45</span></div>
+    <div class="menu-item"><p>Laccha Paratha</p><span>₹45</span></div>
+    <div class="menu-item"><p>Missi Roti</p><span>₹35</span></div>
+    <div class="menu-item"><p>Aloo Paratha</p><span>₹55</span></div>
+    <div class="menu-item"><p>Paneer Paratha</p><span>₹75</span></div>
+  </section>
 
-  <div class="menu-section">
-    <h2>Thali</h2>
-    <table>
-      <tr><th>Dish</th><th>Final Rate (₹)</th></tr>
-      <tr><td>Special Thali</td><td>169</td></tr>
-    </table>
-  </div>
+  <!-- THALI SECTION -->
+  <section class="menu-category">
+    <h2>Special Thali</h2>
+    <div class="menu-item"><p>Special Thali</p><span>₹169</span></div>
+  </section>
 
   <footer>
-    © 2025 Kusha Family Restaurant | All Rights Reserved
+    <p>📞 8770473265 | © 2025 Kusha Family Restaurant | All Rights Reserved</p>
   </footer>
 
 </body>

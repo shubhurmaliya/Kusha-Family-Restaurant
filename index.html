@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kusha Family Restaurant | Menu</title>
+  <title>Kusha Family Restaurant | Pure Veg Since 2022</title>
   <style>
     body {
       margin: 0;
@@ -16,6 +16,11 @@
       background: linear-gradient(90deg, #ff9a00, #ff7300);
       color: white;
       padding: 20px 10px;
+    }
+    header img {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
     }
     h1 {
       margin: 0;
@@ -56,6 +61,25 @@
       padding: 15px 0;
       margin-top: 40px;
     }
+    .info {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1ebd5a;
+    }
     @media (max-width: 600px) {
       .menu-category {
         padding: 15px 20px;
@@ -74,46 +98,33 @@
 <body>
 
   <header>
+    <img src="logo.jpg" alt="KFR Logo" />
     <h1>Kusha Family Restaurant</h1>
-    <p>Satna - Panna Road | Indian Veg Cuisine</p>
+    <p>Pure Veg | Since 2022</p>
+    <div class="info">
+      <p>📍 Mauhari, Satna Panna Road, Near Mauhari Toll Plaza</p>
+      <p>⏰ Timings: 10 AM - 2 PM</p>
+      <a class="whatsapp-btn" href="https://wa.me/918770473265" target="_blank">💬 Chat on WhatsApp</a>
+    </div>
   </header>
 
-  <!-- DAL SECTION -->
+  <!-- Menu Section -->
   <section class="menu-category">
-    <h2>Dal</h2>
-    <div class="menu-item"><p>Dal Fry</p><span>₹129</span></div>
-    <div class="menu-item"><p>Dal Tadka</p><span>₹149</span></div>
-    <div class="menu-item"><p>Dal Makhani</p><span>₹149</span></div>
-    <div class="menu-item"><p>Chana Masala</p><span>₹149</span></div>
-    <div class="menu-item"><p>Mix Veg</p><span>₹149</span></div>
-    <div class="menu-item"><p>Bhindi Masala</p><span>₹149</span></div>
-    <div class="menu-item"><p>Aloo Gobhi Masala</p><span>₹149</span></div>
-    <div class="menu-item"><p>Aloo Matar</p><span>₹149</span></div>
-    <div class="menu-item"><p>Aloo Tamatar</p><span>₹149</span></div>
-    <div class="menu-item"><p>Aloo Jeera</p><span>₹149</span></div>
-    <div class="menu-item"><p>Aloo Shimla Mirch</p><span>₹149</span></div>
-    <div class="menu-item"><p>Aloo Baingan</p><span>₹149</span></div>
-    <div class="menu-item"><p>Baingan Bharta</p><span>₹169</span></div>
+    <h2>Rice & Pulao</h2>
+    <div class="menu-item"><p>Plain Rice</p><span>₹129</span></div>
+    <div class="menu-item"><p>Jeera Rice</p><span>₹149</span></div>
+    <div class="menu-item"><p>Matar Pulao</p><span>₹149</span></div>
+    <div class="menu-item"><p>Veg Biryani</p><span>₹169</span></div>
   </section>
 
-  <!-- RICE SECTION -->
   <section class="menu-category">
-    <h2>Rice</h2>
-    <div class="menu-item"><p>Plain Rice</p><span>₹99</span></div>
-    <div class="menu-item"><p>Jeera Rice</p><span>₹119</span></div>
-    <div class="menu-item"><p>Matta Pulav</p><span>₹139</span></div>
-    <div class="menu-item"><p>Veg Biryani</p><span>₹159</span></div>
-  </section>
-
-  <!-- PANEER SECTION -->
-  <section class="menu-category">
-    <h2>Paneer Special</h2>
+    <h2>Paneer Dishes</h2>
     <div class="menu-item"><p>Chhola Paneer</p><span>₹189</span></div>
     <div class="menu-item"><p>Matar Paneer</p><span>₹189</span></div>
     <div class="menu-item"><p>Paneer Masala</p><span>₹189</span></div>
     <div class="menu-item"><p>Paneer Butter Masala</p><span>₹199</span></div>
     <div class="menu-item"><p>Palak Paneer</p><span>₹199</span></div>
-    <div class="menu-item"><p>Paneer Do Pyaza</p><span>₹219</span></div>
+    <div class="menu-item"><p>Paneer Do Pyaza</p><span>₹199</span></div>
     <div class="menu-item"><p>Kadhai Paneer</p><span>₹219</span></div>
     <div class="menu-item"><p>Handi Paneer</p><span>₹219</span></div>
     <div class="menu-item"><p>Shahi Paneer</p><span>₹240</span></div>
@@ -122,37 +133,30 @@
     <div class="menu-item"><p>Kaju Paneer</p><span>₹299</span></div>
   </section>
 
-  <!-- PAPAD SECTION -->
-  <section class="menu-category">
-    <h2>Papad</h2>
-    <div class="menu-item"><p>Plain Papad</p><span>₹19</span></div>
-    <div class="menu-item"><p>Masala Papad</p><span>₹25</span></div>
-    <div class="menu-item"><p>Fry Papad</p><span>₹25</span></div>
-  </section>
-
-  <!-- ROTI SECTION -->
   <section class="menu-category">
     <h2>Roti & Paratha</h2>
     <div class="menu-item"><p>Tandoori Roti</p><span>₹15</span></div>
-    <div class="menu-item"><p>Tandoori Butter Roti</p><span>₹20</span></div>
+    <div class="menu-item"><p>Butter Roti</p><span>₹20</span></div>
     <div class="menu-item"><p>Tawa Roti</p><span>₹15</span></div>
     <div class="menu-item"><p>Tawa Butter Roti</p><span>₹20</span></div>
-    <div class="menu-item"><p>Naan</p><span>₹45</span></div>
+    <div class="menu-item"><p>Naan Roti</p><span>₹45</span></div>
     <div class="menu-item"><p>Naan Butter</p><span>₹45</span></div>
     <div class="menu-item"><p>Laccha Paratha</p><span>₹45</span></div>
     <div class="menu-item"><p>Missi Roti</p><span>₹35</span></div>
-    <div class="menu-item"><p>Aloo Paratha</p><span>₹55</span></div>
+    <div class="menu-item"><p>Aaloo Paratha</p><span>₹55</span></div>
     <div class="menu-item"><p>Paneer Paratha</p><span>₹75</span></div>
   </section>
 
-  <!-- THALI SECTION -->
   <section class="menu-category">
-    <h2>Special Thali</h2>
+    <h2>Papad & Thali</h2>
+    <div class="menu-item"><p>Plain Papad</p><span>₹19</span></div>
+    <div class="menu-item"><p>Masala Papad</p><span>₹25</span></div>
+    <div class="menu-item"><p>Fry Papad</p><span>₹25</span></div>
     <div class="menu-item"><p>Special Thali</p><span>₹169</span></div>
   </section>
 
   <footer>
-    <p>📞 8770473265 | © 2025 Kusha Family Restaurant | All Rights Reserved</p>
+    <p>© 2025 Kusha Family Restaurant | All Rights Reserved</p>
   </footer>
 
 </body>

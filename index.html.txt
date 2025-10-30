@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kusha Family Restaurant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/918770473265?text=Hello%20Kusha%20Family%20Restaurant,%20I%20want%20to%20place%20an%20order." 
+   target="_blank" 
+   class="whatsapp-float">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: glow 1.5s infinite alternate;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px #25D366; }
+  to { box-shadow: 0 0 20px #25D366; }
+}
+</style>
+  <header>
+    <img src="logo.png" alt="KFR Logo" class="logo" />
+    <h1>Kusha Family Restaurant</h1>
+    <p class="tagline">Pure Taste, Pure Veg, Pure Love</p>
+  </header>
+
+  <section id="about">
+    <h2>Welcome to KFR</h2>
+    <p>
+      Located at Mauhari, Between Satna–Panna Road, Near Mauhari Toll Plaza, 
+      Kusha Family Restaurant offers delicious pure-veg dishes with 
+      home delivery and a comfortable AC family hall. Party orders are also accepted.
+    </p>
+  </section>
+
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <p>Click below to view our complete menu.</p>
+    <a href="menu.pdf" class="btn" target="_blank">View Menu</a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> <a href="tel:8770473265">8770473265</a></p>
+    <p><strong>Email:</strong> <a href="mailto:kushafamily8770@gmail.com">kushafamily8770@gmail.com</a></p>
+    <p><strong>Timings:</strong> 10:00 AM – 2:00 AM</p>
+
+    <a href="https://wa.me/918770473265?text=Hello%20Kusha%20Family%20Restaurant%2C%20I%20want%20to%20place%20an%20order!" class="whatsapp-btn">Order Now on WhatsApp</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Kusha Family Restaurant | Designed with ❤</p>
+  </footer>
+
+</body>
+</html>

@@ -3,161 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kusha Family Restaurant | Pure Veg Since 2022</title>
+  <title>Kusha Family Restaurant</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff8ef;
-      color: #222;
+      font-family: "Poppins", sans-serif;
+      background-color: #f57c00;
+      color: #fff;
+      text-align: center;
     }
     header {
-      text-align: center;
-      background: linear-gradient(90deg, #ff9a00, #ff7300);
-      color: white;
-      padding: 20px 10px;
+      padding: 20px;
     }
-    header img {
+    img.logo {
       width: 120px;
-      border-radius: 50%;
-      margin-bottom: 10px;
+      height: auto;
+      margin-top: 10px;
     }
     h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 1px;
+      font-size: 28px;
+      margin-bottom: 5px;
     }
-    h2 {
-      text-align: center;
-      color: #ff7300;
-      margin-top: 40px;
-      font-size: 2rem;
-      border-bottom: 2px solid #ff7300;
-      display: inline-block;
-      padding-bottom: 5px;
+    p {
+      margin: 5px 0;
     }
-    .menu-category {
-      margin: 40px auto;
-      max-width: 900px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 20px 40px;
-    }
-    .menu-item {
+    .menu-buttons {
       display: flex;
-      justify-content: space-between;
-      border-bottom: 1px dotted #ccc;
-      padding: 8px 0;
-      font-size: 1.05rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 30px 10px;
     }
-    .menu-item:last-child {
-      border-bottom: none;
+    .menu-buttons a {
+      background: #fff;
+      color: #f57c00;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .menu-buttons a:hover {
+      background: #ffe0b2;
     }
     footer {
-      text-align: center;
-      background: #ff7300;
-      color: white;
-      padding: 15px 0;
-      margin-top: 40px;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #fff;
     }
-    .info {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-    .whatsapp-btn {
-      display: inline-block;
-      background-color: #25D366;
-      color: white;
-      padding: 12px 25px;
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: #fff;
       border-radius: 50px;
+      padding: 12px 18px;
       text-decoration: none;
       font-weight: 600;
-      margin-top: 15px;
-      transition: background 0.3s ease;
-    }
-    .whatsapp-btn:hover {
-      background-color: #1ebd5a;
-    }
-    @media (max-width: 600px) {
-      .menu-category {
-        padding: 15px 20px;
-      }
-      .menu-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .menu-item span {
-        margin-top: 4px;
-        font-weight: bold;
-      }
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo.jpg" alt="KFR Logo" />
+    <img src="logo.png.jpg" class="logo" alt="KFR Logo">
     <h1>Kusha Family Restaurant</h1>
     <p>Pure Veg | Since 2022</p>
-    <div class="info">
-      <p>📍 Mauhari, Satna Panna Road, Near Mauhari Toll Plaza</p>
-      <p>⏰ Timings: 10 AM - 2 PM</p>
-      <a class="whatsapp-btn" href="https://wa.me/918770473265" target="_blank">💬 Chat on WhatsApp</a>
-    </div>
+    <p><strong>Address:</strong> Mauhari Satna Panna Road, Near Mauhari Toll Plaza</p>
+    <p><strong>Timing:</strong> 10 AM – 2 PM</p>
   </header>
 
-  <!-- Menu Section -->
-  <section class="menu-category">
-    <h2>Rice & Pulao</h2>
-    <div class="menu-item"><p>Plain Rice</p><span>₹129</span></div>
-    <div class="menu-item"><p>Jeera Rice</p><span>₹149</span></div>
-    <div class="menu-item"><p>Matar Pulao</p><span>₹149</span></div>
-    <div class="menu-item"><p>Veg Biryani</p><span>₹169</span></div>
-  </section>
-
-  <section class="menu-category">
-    <h2>Paneer Dishes</h2>
-    <div class="menu-item"><p>Chhola Paneer</p><span>₹189</span></div>
-    <div class="menu-item"><p>Matar Paneer</p><span>₹189</span></div>
-    <div class="menu-item"><p>Paneer Masala</p><span>₹189</span></div>
-    <div class="menu-item"><p>Paneer Butter Masala</p><span>₹199</span></div>
-    <div class="menu-item"><p>Palak Paneer</p><span>₹199</span></div>
-    <div class="menu-item"><p>Paneer Do Pyaza</p><span>₹199</span></div>
-    <div class="menu-item"><p>Kadhai Paneer</p><span>₹219</span></div>
-    <div class="menu-item"><p>Handi Paneer</p><span>₹219</span></div>
-    <div class="menu-item"><p>Shahi Paneer</p><span>₹240</span></div>
-    <div class="menu-item"><p>Kaju Masala</p><span>₹249</span></div>
-    <div class="menu-item"><p>Kaju Butter Masala</p><span>₹299</span></div>
-    <div class="menu-item"><p>Kaju Paneer</p><span>₹299</span></div>
-  </section>
-
-  <section class="menu-category">
-    <h2>Roti & Paratha</h2>
-    <div class="menu-item"><p>Tandoori Roti</p><span>₹15</span></div>
-    <div class="menu-item"><p>Butter Roti</p><span>₹20</span></div>
-    <div class="menu-item"><p>Tawa Roti</p><span>₹15</span></div>
-    <div class="menu-item"><p>Tawa Butter Roti</p><span>₹20</span></div>
-    <div class="menu-item"><p>Naan Roti</p><span>₹45</span></div>
-    <div class="menu-item"><p>Naan Butter</p><span>₹45</span></div>
-    <div class="menu-item"><p>Laccha Paratha</p><span>₹45</span></div>
-    <div class="menu-item"><p>Missi Roti</p><span>₹35</span></div>
-    <div class="menu-item"><p>Aaloo Paratha</p><span>₹55</span></div>
-    <div class="menu-item"><p>Paneer Paratha</p><span>₹75</span></div>
-  </section>
-
-  <section class="menu-category">
-    <h2>Papad & Thali</h2>
-    <div class="menu-item"><p>Plain Papad</p><span>₹19</span></div>
-    <div class="menu-item"><p>Masala Papad</p><span>₹25</span></div>
-    <div class="menu-item"><p>Fry Papad</p><span>₹25</span></div>
-    <div class="menu-item"><p>Special Thali</p><span>₹169</span></div>
-  </section>
+  <div class="menu-buttons">
+    <a href="thali.html">Thali</a>
+    <a href="daal.html">Daal</a>
+    <a href="sabji.html">Sabji</a>
+    <a href="paneer.html">Paneer</a>
+    <a href="rice.html">Rice</a>
+    <a href="papad.html">Papad</a>
+    <a href="roti.html">Roti</a>
+  </div>
 
   <footer>
-    <p>© 2025 Kusha Family Restaurant | All Rights Reserved</p>
+    Home delivery available | Charge ₹50 only
   </footer>
 
+  <a class="whatsapp" 
+     href="https://wa.me/918770473265?text=Hi%2C%20Kusha%20Family%20Restaurant!%20I%20want%20to%20place%20an%20order." 
+     target="_blank">💬 Order on WhatsApp</a>
 </body>
 </html>

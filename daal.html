@@ -65,67 +65,44 @@ button {
 </head>
 <body>
 
-<header>
-  Daal Menu - Kusha Family Restaurant
-</header>
+<header>Daal Menu - Kusha Family Restaurant</header>
 
 <div class="menu">
-  <div class="item">
-    <h3>Daal Fry</h3>
-    <span>₹89</span>
-    <button onclick="add('Daal Fry', 89)">Add</button>
-  </div>
-
-  <div class="item">
-    <h3>Daal Tadka</h3>
-    <span>₹99</span>
-    <button onclick="add('Daal Tadka', 99)">Add</button>
-  </div>
+  <div class="item"><h3>Daal Fry</h3><span>₹89</span><button onclick="addItem('Daal Fry', 89)">Add</button></div>
+  <div class="item"><h3>Daal Tadka</h3><span>₹99</span><button onclick="addItem('Daal Tadka', 99)">Add</button></div>
 </div>
 
 <div class="cart">
-  <div id="cartItems">Cart: 0 items | Total: ₹0</div>
+  <div id="cartStatus">Cart: 0 items | Total: ₹0</div>
   <button class="order-btn" onclick="orderNow()">Order Now</button>
 </div>
 
 <script>
-let total = 0;
-let count = 0;
-let items = [];
+let cart = JSON.parse(localStorage.getItem("cartData")) || { total: 0, count: 0, items: [] };
 
-// Load existing cart from localStorage
-if (localStorage.getItem("cartData")) {
-  const cart = JSON.parse(localStorage.getItem("cartData"));
-  total = cart.total;
-  count = cart.count;
-  items = cart.items;
-  updateCart();
+function updateCartDisplay() {
+  document.getElementById("cartStatus").innerText = Cart: ${cart.count} items | Total: ₹${cart.total};
 }
 
-// Add item to cart
-function add(name, price) {
-  total += price;
-  count++;
-  items.push({ name, price });
-  localStorage.setItem("cartData", JSON.stringify({ total, count, items }));
-  updateCart();
+function addItem(name, price) {
+  cart.total += price;
+  cart.count++;
+  cart.items.push({ name, price });
+  localStorage.setItem("cartData", JSON.stringify(cart));
+  updateCartDisplay();
 }
 
-// Update cart display
-function updateCart() {
-  document.getElementById("cartItems").innerText = Cart: ${count} items | Total: ₹${total};
-}
-
-// WhatsApp Order
 function orderNow() {
-  if (items.length === 0) {
+  if (cart.items.length === 0) {
     alert("Please add items first!");
     return;
   }
-  let orderList = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
-  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${total};
+  let orderList = cart.items.map(i => ${i.name} - ₹${i.price}).join('%0A');
+  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${cart.total};
   window.open(url, '_blank');
 }
+
+updateCartDisplay();
 </script>
 
 </body>

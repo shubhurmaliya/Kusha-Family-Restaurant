@@ -7,11 +7,11 @@
 <style>
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fff3e0;
+  background: #fff8e1;
   margin: 0;
 }
 header {
-  background: #ff6f00;
+  background: #ff9800;
   color: white;
   text-align: center;
   padding: 15px;
@@ -33,7 +33,7 @@ header {
   align-items: center;
 }
 button {
-  background: #ff6f00;
+  background: #ff9800;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -52,46 +52,61 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+.cart button {
+  background: #25d366;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
 a {
   color: white;
   text-decoration: none;
-  background: #ff6f00;
+  background: #ff9800;
   padding: 6px 12px;
   border-radius: 8px;
 }
 </style>
 </head>
 <body>
-
-<header>Kusha Family Restaurant - Daal</header>
+<header>Daal - Kusha Family Restaurant</header>
 
 <div class="menu">
-  <div class="item"><h3>Daal Fry</h3><span>₹125</span><button onclick="add('Daal Fry',125)">Add</button></div>
-  <div class="item"><h3>Daal Tadka</h3><span>₹145</span><button onclick="add('Daal Tadka',145)">Add</button></div>
+  <div class="item">
+    <h3>Daal Fry</h3><span>₹99</span>
+    <button onclick="add('Daal Fry',99)">Add</button>
+  </div>
+  <div class="item">
+    <h3>Daal Tadka</h3><span>₹109</span>
+    <button onclick="add('Daal Tadka',109)">Add</button>
+  </div>
 </div>
 
 <div class="cart">
   <div id="cartItems">Cart: 0 items | Total: ₹0</div>
-  <a href="index.html">⬅ Back</a>
+  <button onclick="orderNow()">Order Now</button>
 </div>
 
 <script>
-let total = parseFloat(localStorage.getItem('total')) || 0;
-let items = parseInt(localStorage.getItem('items')) || 0;
-updateCart();
+let total = Number(localStorage.getItem("total")) || 0;
+let count = Number(localStorage.getItem("items")) || 0;
 
 function add(name, price) {
   total += price;
-  items += 1;
-  localStorage.setItem('total', total);
-  localStorage.setItem('items', items);
-  updateCart();
+  count++;
+  localStorage.setItem("total", total);
+  localStorage.setItem("items", count);
+  document.getElementById('cartItems').innerText = Cart: ${count} items | Total: ₹${total};
 }
 
-function updateCart() {
-  document.getElementById('cartItems').innerText = Cart: ${items} items | Total: ₹${total};
+function orderNow() {
+  let msg = Hello Kusha Family Restaurant! I want to place an order.\nTotal: ₹${total};
+  window.open(https://wa.me/918770473265?text=${encodeURIComponent(msg)}, '_blank');
 }
+
+document.getElementById('cartItems').innerText = Cart: ${count} items | Total: ₹${total};
 </script>
-
 </body>
 </html>

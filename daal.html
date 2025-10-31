@@ -52,17 +52,10 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-a {
-  color: white;
-  text-decoration: none;
-  background: #ff6f00;
-  padding: 6px 12px;
-  border-radius: 8px;
-}
 .order-btn {
   background: #25d366;
-  color: white;
   border: none;
+  color: white;
   padding: 8px 15px;
   border-radius: 8px;
   font-size: 15px;
@@ -85,25 +78,38 @@ a {
 </div>
 
 <script>
-let total = parseInt(localStorage.getItem('total')) || 0;
-let count = parseInt(localStorage.getItem('count')) || 0;
-let items = JSON.parse(localStorage.getItem('items')) || [];
+let total = 0;
+let count = 0;
+let items = [];
 
-function add(name, price) {
+// Page load hone par purane data wapas lao
+if(localStorage.getItem("cartData")){
+  const cart = JSON.parse(localStorage.getItem("cartData"));
+  total = cart.total;
+  count = cart.count;
+  items = cart.items;
+  updateCart();
+}
+
+// Add item
+function add(name, price){
   total += price;
   count++;
   items.push({name, price});
-  localStorage.setItem('total', total);
-  localStorage.setItem('count', count);
-  localStorage.setItem('items', JSON.stringify(items));
-  document.getElementById('cartItems').innerText = Cart: ${count} items | Total: ₹${total};
+  localStorage.setItem("cartData", JSON.stringify({total, count, items}));
+  updateCart();
 }
 
-document.getElementById('cartItems').innerText = Cart: ${count} items | Total: ₹${total};
+// Update cart display
+function updateCart(){
+  document.getElementById("cartItems").innerText = Cart: ${count} items | Total: ₹${total};
+}
 
-function orderNow() {
-  let orderText = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
-  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderText}%0ATotal:%20₹${total};
+// WhatsApp order
+function orderNow(){
+  if(items.length === 0){ alert("Please add items first!"); return; }
+  let orderList = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
+  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${total};
   window.open(url, '_blank');
 }
 </script>

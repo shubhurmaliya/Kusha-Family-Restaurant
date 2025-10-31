@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thali - Kusha Family Restaurant</title>
+<style>
+body{font-family:'Poppins',sans-serif;background:#fff3e0;margin:0;}
+header{background:#ff6f00;color:white;text-align:center;padding:15px;font-size:24px;}
+.menu{display:flex;flex-direction:column;gap:15px;padding:20px;}
+.item{background:white;border-radius:12px;padding:15px;box-shadow:0 2px 5px rgba(0,0,0,0.2);display:flex;justify-content:space-between;align-items:center;}
+button{background:#ff6f00;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#4a2c00;color:white;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;}
+a{color:white;text-decoration:none;background:#ff6f00;padding:6px 12px;border-radius:8px;}
+</style>
+</head>
+<body>
+<header>Kusha Family Restaurant - Thali</header>
+<div class="menu">
+  <div class="item"><h3>Special Thali</h3><span>₹169</span><button onclick="add('Special Thali',169)">Add</button></div>
+</div>
+<div class="cart">
+<div id="cartItems">Cart: 0 items | Total: ₹0</div>
+<a href="index.html">Back</a>
+</div>
+<script>
+let total=0,count=0;
+function add(name,price){total+=price;count++;document.getElementById('cartItems').innerText=Cart: ${count} items | Total: ₹${total};}
+</script>
+</body>
+</html>

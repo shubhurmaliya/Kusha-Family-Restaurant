@@ -1,124 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daal - Kusha Family Restaurant</title>
-<style>
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #fff8e1;
-  margin: 0;
-}
-header {
-  background: #ff6f00;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 24px;
-}
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 20px;
-}
-.item {
-  background: white;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-button {
-  background: #ff6f00;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.cart {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #4a2c00;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.order-btn {
-  background: #25d366;
-  border: none;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daal Menu - Kusha Family Restaurant</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffebe1;
+      margin: 0;
+    }
+
+    header {
+      background: #a00000;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .item {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      background: #a00000;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #c20000;
+    }
+
+    .cart {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #4b1c1c;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    .order-btn {
+      background: #ffc107;
+      color: black;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .order-btn:hover {
+      background: #ffca28;
+    }
+  </style>
 </head>
 <body>
 
-<header>Daal Menu - Kusha Family Restaurant</header>
+  <header>Daal Menu - Kusha Family Restaurant</header>
 
-<div class="menu">
-  <div class="item">
-    <h3>Daal Fry</h3><span>₹89</span>
-    <button onclick="addItem('Daal Fry', 89)">Add</button>
+  <div class="menu">
+    <div class="item">
+      <span>Daal Fry</span>
+      <span>₹119</span>
+      <button onclick="addToCart('Daal Fry', 129)">Add</button>
+    </div>
+    <div class="item">
+      <span>Daal Tadka</span>
+      <span>₹119</span>
+      <button onclick="addToCart('Daal Tadka', 149)">Add</button>
+    </div>
   </div>
-  <div class="item">
-    <h3>Daal Tadka</h3><span>₹99</span>
-    <button onclick="addItem('Daal Tadka', 99)">Add</button>
+
+  <div class="cart">
+    <div>Cart: <span id="cart-count">0</span> Items | Total: <span id="cart-total">₹0</span></div>
+    <button class="order-btn" onclick="orderNow()">Order Now</button>
   </div>
-</div>
 
-<div class="cart">
-  <div id="cartItems">Cart: 0 items | Total: ₹0</div>
-  <button class="order-btn" onclick="orderNow()">Order Now</button>
-</div>
+  <script>
+    let cart = [];
+    let total = 0;
 
-<script>
-function getCart() {
-  return JSON.parse(localStorage.getItem("cartData")) || { items: [], total: 0 };
-}
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      total += price;
+      document.getElementById("cart-count").textContent = cart.length;
+      document.getElementById("cart-total").textContent = "₹" + total;
+    }
 
-function saveCart(cart) {
-  localStorage.setItem("cartData", JSON.stringify(cart));
-  updateCartDisplay(cart);
-}
-
-function addItem(name, price) {
-  let cart = getCart();
-  cart.items.push({ name, price });
-  cart.total = cart.items.reduce((sum, item) => sum + item.price, 0);
-  saveCart(cart);
-}
-
-function updateCartDisplay(cart) {
-  document.getElementById("cartItems").innerText =
-    Cart: ${cart.items.length} items | Total: ₹${cart.total};
-}
-
-function orderNow() {
-  const cart = getCart();
-  if (cart.items.length === 0) {
-    alert("Please add items first!");
-    return;
-  }
-  let orderList = cart.items.map(i => ${i.name} - ₹${i.price}).join('%0A');
-  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${cart.total};
-  window.open(url, '_blank');
-}
-
-// Load existing cart on page load
-updateCartDisplay(getCart());
-</script>
+    function orderNow() {
+      if (cart.length === 0) {
+        alert("Please add some items first!");
+      } else {
+        alert("Your order for " + cart.length + " items (Total ₹" + total + ") has been placed!");
+      }
+    }
+  </script>
 
 </body>
 </html>

@@ -1,41 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paneer Menu - Kusha Family Restaurant</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paneer - Kusha Family Restaurant</title>
 <style>
-body{font-family:'Poppins',sans-serif;background:#fff3e0;margin:0;}
-header{background:#ff6f00;color:white;text-align:center;padding:15px;font-size:24px;}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;padding:20px;}
-.item{background:white;border-radius:12px;padding:15px;box-shadow:0 2px 5px rgba(0,0,0,0.2);display:flex;justify-content:space-between;align-items:center;}
-button{background:#ff6f00;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;}
-.cart{position:fixed;bottom:0;left:0;right:0;background:#4a2c00;color:white;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;}
-a{color:white;text-decoration:none;background:#ff6f00;padding:6px 12px;border-radius:8px;}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff8e1;
+  margin: 0;
+}
+header {
+  background: #ff9800;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 24px;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+.item {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+button {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cart {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #4a2c00;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  color: white;
+  text-decoration: none;
+  background: #ff9800;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
 </style>
 </head>
 <body>
-<header>Kusha Family Restaurant - Paneer Menu</header>
+
+<header>Kusha Family Restaurant - Paneer</header>
+
 <div class="menu">
-<div class="item"><h3>Chhola Paneer</h3><span>₹189</span><button onclick="add('Chhola Paneer',189)">Add</button></div>
-<div class="item"><h3>Matar Paneer</h3><span>₹193</span><button onclick="add('Matar Paneer',193)">Add</button></div>
-<div class="item"><h3>Paneer Masala</h3><span>₹189</span><button onclick="add('Paneer Masala',189)">Add</button></div>
-<div class="item"><h3>Paneer Butter Masala</h3><span>₹230</span><button onclick="add('Paneer Butter Masala',230)">Add</button></div>
-<div class="item"><h3>Palak Paneer</h3><span>₹189</span><button onclick="add('Palak Paneer',189)">Add</button></div>
-<div class="item"><h3>Paneer Do Pyaza</h3><span>₹249</span><button onclick="add('Paneer Do Pyaza',249)">Add</button></div>
-<div class="item"><h3>Kadhai Paneer</h3><span>₹249</span><button onclick="add('Kadhai Paneer',249)">Add</button></div>
-<div class="item"><h3>Handi Paneer</h3><span>₹219</span><button onclick="add('Handi Paneer',219)">Add</button></div>
-<div class="item"><h3>Shahi Paneer</h3><span>₹249</span><button onclick="add('Shahi Paneer',249)">Add</button></div>
-<div class="item"><h3>Kaju Masala</h3><span>₹249</span><button onclick="add('Kaju Masala',249)">Add</button></div>
-<div class="item"><h3>Kaju Butter Masala</h3><span>₹255</span><button onclick="add('Kaju Butter Masala',255)">Add</button></div>
-<div class="item"><h3>Kaju Paneer</h3><span>₹255</span><button onclick="add('Kaju Paneer',255)">Add</button></div>
+  <div class="item"><h3>Paneer Butter Masala</h3><span>₹195</span><button onclick="add('Paneer Butter Masala',195)">Add</button></div>
+  <div class="item"><h3>Kadai Paneer</h3><span>₹195</span><button onclick="add('Kadai Paneer',195)">Add</button></div>
+  <div class="item"><h3>Paneer Masala</h3><span>₹185</span><button onclick="add('Paneer Masala',185)">Add</button></div>
+  <div class="item"><h3>Paneer Do Pyaza</h3><span>₹185</span><button onclick="add('Paneer Do Pyaza',185)">Add</button></div>
+  <div class="item"><h3>Paneer Tikka Masala</h3><span>₹205</span><button onclick="add('Paneer Tikka Masala',205)">Add</button></div>
+  <div class="item"><h3>Shahi Paneer</h3><span>₹195</span><button onclick="add('Shahi Paneer',195)">Add</button></div>
+  <div class="item"><h3>Paneer Bhurji</h3><span>₹185</span><button onclick="add('Paneer Bhurji',185)">Add</button></div>
+  <div class="item"><h3>Palak Paneer</h3><span>₹185</span><button onclick="add('Palak Paneer',185)">Add</button></div>
+  <div class="item"><h3>Paneer Handi</h3><span>₹195</span><button onclick="add('Paneer Handi',195)">Add</button></div>
+  <div class="item"><h3>Paneer Chilli</h3><span>₹205</span><button onclick="add('Paneer Chilli',205)">Add</button></div>
 </div>
+
 <div class="cart">
-<div id="cartItems">Cart: 0 items | Total: ₹0</div>
-<a href="index.html">Back</a>
+  <div id="cartItems">Cart: 0 items | Total: ₹0</div>
+  <a href="index.html">⬅ Back</a>
 </div>
+
 <script>
-let total=0,count=0;
-function add(name,price){total+=price;count++;document.getElementById('cartItems').innerText=Cart: ${count} items | Total: ₹${total};}
+let total = parseFloat(localStorage.getItem('total')) || 0;
+let items = parseInt(localStorage.getItem('items')) || 0;
+updateCart();
+
+function add(name, price) {
+  total += price;
+  items += 1;
+  localStorage.setItem('total', total);
+  localStorage.setItem('items', items);
+  updateCart();
+}
+
+function updateCart() {
+  document.getElementById('cartItems').innerText = Cart: ${items} items | Total: ₹${total};
+}
 </script>
+
 </body>
 </html>

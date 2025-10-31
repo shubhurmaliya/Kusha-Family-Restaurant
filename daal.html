@@ -68,31 +68,45 @@ button {
 <header>Daal Menu - Kusha Family Restaurant</header>
 
 <div class="menu">
-  <div class="item"><h3>Daal Fry</h3><span>₹89</span><button onclick="addItem('Daal Fry', 89)">Add</button></div>
-  <div class="item"><h3>Daal Tadka</h3><span>₹99</span><button onclick="addItem('Daal Tadka', 99)">Add</button></div>
+  <div class="item">
+    <h3>Daal Fry</h3><span>₹89</span>
+    <button onclick="addItem('Daal Fry', 89)">Add</button>
+  </div>
+  <div class="item">
+    <h3>Daal Tadka</h3><span>₹99</span>
+    <button onclick="addItem('Daal Tadka', 99)">Add</button>
+  </div>
 </div>
 
 <div class="cart">
-  <div id="cartStatus">Cart: 0 items | Total: ₹0</div>
+  <div id="cartItems">Cart: 0 items | Total: ₹0</div>
   <button class="order-btn" onclick="orderNow()">Order Now</button>
 </div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cartData")) || { total: 0, count: 0, items: [] };
+function getCart() {
+  return JSON.parse(localStorage.getItem("cartData")) || { items: [], total: 0 };
+}
 
-function updateCartDisplay() {
-  document.getElementById("cartStatus").innerText = Cart: ${cart.count} items | Total: ₹${cart.total};
+function saveCart(cart) {
+  localStorage.setItem("cartData", JSON.stringify(cart));
+  updateCartDisplay(cart);
 }
 
 function addItem(name, price) {
-  cart.total += price;
-  cart.count++;
+  let cart = getCart();
   cart.items.push({ name, price });
-  localStorage.setItem("cartData", JSON.stringify(cart));
-  updateCartDisplay();
+  cart.total = cart.items.reduce((sum, item) => sum + item.price, 0);
+  saveCart(cart);
+}
+
+function updateCartDisplay(cart) {
+  document.getElementById("cartItems").innerText =
+    Cart: ${cart.items.length} items | Total: ₹${cart.total};
 }
 
 function orderNow() {
+  const cart = getCart();
   if (cart.items.length === 0) {
     alert("Please add items first!");
     return;
@@ -102,7 +116,8 @@ function orderNow() {
   window.open(url, '_blank');
 }
 
-updateCartDisplay();
+// Load existing cart on page load
+updateCartDisplay(getCart());
 </script>
 
 </body>

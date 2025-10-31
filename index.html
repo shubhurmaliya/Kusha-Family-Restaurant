@@ -8,67 +8,68 @@
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #ffb74d, #ff6f00);
-  color: #fff;
+  background: linear-gradient(to bottom, #ff5722, #ff9800);
+  color: white;
   text-align: center;
 }
 header {
-  background: rgba(255, 111, 0, 0.9);
-  padding: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  padding: 25px 10px;
 }
-header img {
-  height: 80px;
-  border-radius: 50%;
+header h1 {
+  margin: 5px 0;
+  font-size: 28px;
 }
-h1 { margin: 5px 0; font-size: 28px; }
-p { margin: 3px 0; }
+header p {
+  margin: 3px 0;
+  font-size: 15px;
+}
 .menu {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
   padding: 20px;
 }
 .menu button {
   background: white;
-  color: #ff6f00;
+  color: #ff5722;
   border: none;
-  border-radius: 15px;
-  padding: 20px;
-  font-size: 20px;
-  font-weight: bold;
+  padding: 15px 0;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .menu button:hover {
   background: #ffe0b2;
-  transform: scale(1.05);
 }
-.cart-bar {
+.cart {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background: #4a2c00;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 16px;
 }
-.cart-bar a {
-  background: #25D366;
+.cart button {
+  background: #25d366;
+  border: none;
   color: white;
   padding: 8px 15px;
-  border-radius: 10px;
-  text-decoration: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
 }
 .footer {
-  background: #3e2723;
+  background: #ff5722;
   color: white;
-  text-align: center;
-  padding: 8px;
+  padding: 10px;
+  margin-bottom: 60px;
   font-size: 14px;
 }
 </style>
@@ -76,19 +77,18 @@ p { margin: 3px 0; }
 <body>
 
 <header>
-  <img src="logo.png.jpg" alt="Logo">
   <h1>Kusha Family Restaurant</h1>
-  <p>Mauhari Satna Panna Road, Near Mauhari Toll Plaza</p>
+  <p>Mauhari Satna-Panna Road, Near Mauhari Toll Plaza</p>
   <p>Timing: 10 AM Morning – 2 AM Night</p>
 </header>
 
 <div class="menu">
   <button onclick="location.href='thali.html'">🥗 Thali</button>
   <button onclick="location.href='daal.html'">🍲 Daal</button>
-  <button onclick="location.href='sabji.html'">🥘 Sabji</button>
+  <button onclick="location.href='sabji.html'">🥦 Sabji</button>
   <button onclick="location.href='paneer.html'">🧀 Paneer</button>
-  <button onclick="location.href='rice.html'">🍚 Rice</button>
-  <button onclick="location.href='roti.html'">🥯 Roti</button>
+  <button onclick="location.href='rice.html'">🍛 Rice</button>
+  <button onclick="location.href='roti.html'">🍞 Roti</button>
   <button onclick="location.href='papad.html'">🍘 Papad</button>
 </div>
 
@@ -96,24 +96,17 @@ p { margin: 3px 0; }
   Home Delivery Available — ₹50 Only
 </div>
 
-<div class="cart-bar">
-  <div id="cart">Cart: 0 items | Total: ₹0</div>
-  <a id="whatsappLink" target="_blank">Order on WhatsApp</a>
+<div class="cart">
+  <div id="cartStatus">Cart: 0 Items | Total: ₹0</div>
+  <button onclick="window.open('https://wa.me/918770473265?text=Hello%20Kusha%20Family%20Restaurant!%20I%20want%20to%20place%20an%20order.', '_blank')">
+    Order on WhatsApp
+  </button>
 </div>
 
 <script>
-let total = 0, count = 0;
-function addItem(name, price) {
-  total += price;
-  count++;
-  document.getElementById('cart').innerText = Cart: ${count} items | Total: ₹${total};
-  updateWhatsAppLink();
-}
-
-function updateWhatsAppLink() {
-  const msg = Hi, Kusha Family Restaurant%0AI want to place an order:%0AItems: ${count}%0ATotal: ₹${total}%0AName:%0APhone:%0AAddress:%0AOrder Type: Home Delivery / Takeaway / Dine In;
-  document.getElementById('whatsappLink').href = https://wa.me/918770473265?text=${msg};
-}
+let total = localStorage.getItem("total") || 0;
+let items = localStorage.getItem("items") || 0;
+document.getElementById('cartStatus').innerText = Cart: ${items} Items | Total: ₹${total};
 </script>
 
 </body>

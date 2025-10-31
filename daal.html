@@ -68,8 +68,8 @@ button {
 <header>Daal Menu - Kusha Family Restaurant</header>
 
 <div class="menu">
-  <div class="item"><h3>Daal Fry</h3><span>₹89</span><button onclick="add('Daal Fry',89)">Add</button></div>
-  <div class="item"><h3>Daal Tadka</h3><span>₹99</span><button onclick="add('Daal Tadka',99)">Add</button></div>
+  <div class="item"><h3>Daal Fry</h3><span>₹129</span><button onclick="add('Daal Fry',89)">Add</button></div>
+  <div class="item"><h3>Daal Tadka</h3><span>₹149</span><button onclick="add('Daal Tadka',99)">Add</button></div>
 </div>
 
 <div class="cart">
@@ -107,7 +107,10 @@ function updateCart(){
 
 // WhatsApp order
 function orderNow(){
-  if(items.length === 0){ alert("Please add items first!"); return; }
+  if(items.length === 0){ 
+    alert("Please add items first!"); 
+    return; 
+  }
   let orderList = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
   let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${total};
   window.open(url, '_blank');

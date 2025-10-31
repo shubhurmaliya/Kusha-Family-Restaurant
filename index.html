@@ -8,7 +8,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: linear-gradient(to bottom, #ff5722, #ff9800);
+  background: linear-gradient(to bottom, #ff8000, #ffb84d);
   color: white;
   text-align: center;
 }
@@ -31,7 +31,7 @@ header p {
 }
 .menu button {
   background: white;
-  color: #ff5722;
+  color: #ff6f00;
   border: none;
   padding: 15px 0;
   border-radius: 10px;
@@ -41,7 +41,7 @@ header p {
   transition: 0.2s;
 }
 .menu button:hover {
-  background: #ffe0b2;
+  background: #fff3e0;
 }
 .cart {
   position: fixed;
@@ -66,7 +66,7 @@ header p {
   cursor: pointer;
 }
 .footer {
-  background: #ff5722;
+  background: #ff6f00;
   color: white;
   padding: 10px;
   margin-bottom: 60px;
@@ -98,15 +98,17 @@ header p {
 
 <div class="cart">
   <div id="cartStatus">Cart: 0 Items | Total: ₹0</div>
-  <button onclick="window.open('https://wa.me/918770473265?text=Hello%20Kusha%20Family%20Restaurant!%20I%20want%20to%20place%20an%20order.', '_blank')">
-    Order on WhatsApp
-  </button>
+  <button onclick="orderNow()">Order Now</button>
 </div>
 
 <script>
 let total = localStorage.getItem("total") || 0;
 let items = localStorage.getItem("items") || 0;
 document.getElementById('cartStatus').innerText = Cart: ${items} Items | Total: ₹${total};
+
+function orderNow(){
+  window.open('https://wa.me/918770473265?text=Hello%20Kusha%20Family%20Restaurant!%20I%20want%20to%20place%20an%20order.', '_blank');
+}
 </script>
 
 </body>

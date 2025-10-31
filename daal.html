@@ -7,31 +7,48 @@
 <style>
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fff8e1;
+  background: linear-gradient(to bottom, #ff6f00, #ffcc80);
   margin: 0;
+  padding: 0;
 }
+
 header {
-  background: #ff6f00;
-  color: white;
   text-align: center;
+  color: white;
   padding: 15px;
+}
+
+header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  margin: 5px 0;
   font-size: 24px;
 }
+
 .menu {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   padding: 20px;
 }
+
 .item {
   background: white;
   border-radius: 12px;
   padding: 15px;
+  text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
+
+.item h3 {
+  margin: 5px 0;
+}
+
 button {
   background: #ff6f00;
   color: white;
@@ -40,6 +57,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
+
 .cart {
   position: fixed;
   bottom: 0;
@@ -52,6 +70,7 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+
 .order-btn {
   background: #25d366;
   border: none;
@@ -65,11 +84,22 @@ button {
 </head>
 <body>
 
-<header>Daal Menu - Kusha Family Restaurant</header>
+<header>
+  <img src="logo.png.jpg" alt="Kusha Family Restaurant Logo">
+  <h1>Daal Menu</h1>
+</header>
 
 <div class="menu">
-  <div class="item"><h3>Daal Fry</h3><span>₹89</span><button onclick="add('Daal Fry',89)">Add</button></div>
-  <div class="item"><h3>Daal Tadka</h3><span>₹99</span><button onclick="add('Daal Tadka',99)">Add</button></div>
+  <div class="item">
+    <h3>Daal Fry</h3>
+    <span>₹125</span><br>
+    <button onclick="add('Daal Fry',125)">Add</button>
+  </div>
+  <div class="item">
+    <h3>Daal Tadka</h3>
+    <span>₹145</span><br>
+    <button onclick="add('Daal Tadka',145)">Add</button>
+  </div>
 </div>
 
 <div class="cart">
@@ -82,7 +112,7 @@ let total = 0;
 let count = 0;
 let items = [];
 
-// Purana cart load karo
+// Restore previous cart
 if(localStorage.getItem("cartData")){
   const cart = JSON.parse(localStorage.getItem("cartData"));
   total = cart.total;
@@ -91,7 +121,6 @@ if(localStorage.getItem("cartData")){
   updateCart();
 }
 
-// Add function
 function add(name, price){
   total += price;
   count++;
@@ -100,19 +129,14 @@ function add(name, price){
   updateCart();
 }
 
-// Update cart
 function updateCart(){
   document.getElementById("cartItems").innerText = Cart: ${count} items | Total: ₹${total};
 }
 
-// WhatsApp Order
 function orderNow(){
-  if(items.length === 0){
-    alert("Please add items first!");
-    return;
-  }
+  if(items.length === 0){ alert("Please add items first!"); return; }
   let orderList = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
-  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${total};
+  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20order:%0A${orderList}%0A%0ATotal:%20₹${total};
   window.open(url, '_blank');
 }
 </script>

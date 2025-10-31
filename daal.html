@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daal Menu - Kusha Family Restaurant</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff3e0;
+      color: #4a2c00;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ff6f00;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+    }
+    .item {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: scale(1.03);
+    }
+    .item h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .item span {
+      font-weight: bold;
+    }
+    button {
+      background-color: #ff6f00;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e65c00;
+    }
+    .cart {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #4a2c00;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      background: #ff6f00;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>Kusha Family Restaurant - Daal Menu</header>
+
+  <div class="menu" id="menu">
+    <div class="item"><h3>Daal Fry</h3><span>₹125</span><button onclick="add('Daal Fry',125)">Add</button></div>
+    <div class="item"><h3>Daal Tadka</h3><span>₹149</span><button onclick="add('Daal Tadka',149)">Add</button></div>
+  </div>
+
+  <div class="cart">
+    <div id="cartItems">Cart: 0 items | Total: ₹0</div>
+    <a href="index.html">Back</a>
+  </div>
+
+  <script>
+    let total = 0;
+    let count = 0;
+    function add(name, price){
+      total += price;
+      count++;
+      document.getElementById('cartItems').innerText = Cart: ${count} items | Total: ₹${total};
+    }
+  </script>
+</body>
+</html>

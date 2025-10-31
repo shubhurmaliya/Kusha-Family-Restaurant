@@ -1,95 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kusha Family Restaurant</title>
   <style>
     body {
       margin: 0;
       font-family: "Poppins", sans-serif;
-      background-color: #f57c00;
-      color: #fff;
+      background-color: #ffb84d;
+      color: #222;
       text-align: center;
     }
     header {
+      background: linear-gradient(135deg, #ff9933, #ff6600);
+      color: white;
       padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
     }
-    img.logo {
-      width: 120px;
-      height: auto;
-      margin-top: 10px;
+    header img {
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #fff;
     }
     h1 {
       font-size: 28px;
-      margin-bottom: 5px;
+      margin: 10px 0 5px;
     }
     p {
       margin: 5px 0;
     }
-    .menu-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 30px 10px;
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      padding: 20px;
     }
-    .menu-buttons a {
-      background: #fff;
-      color: #f57c00;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 600;
+    .item {
+      background: #fff7e6;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 10px;
       transition: 0.3s;
     }
-    .menu-buttons a:hover {
-      background: #ffe0b2;
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    button {
+      background: #ff6600;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    button:hover {
+      background: #e65c00;
     }
     footer {
+      background: #ff9933;
+      color: white;
+      padding: 15px;
       margin-top: 30px;
-      font-size: 14px;
-      color: #fff;
+      box-shadow: 0 -3px 15px rgba(0,0,0,0.3);
     }
-    .whatsapp {
+    .whatsapp-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background: #25D366;
-      color: #fff;
+      color: white;
+      padding: 12px 16px;
       border-radius: 50px;
-      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
       text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .whatsapp-btn img {
+      width: 25px;
+      margin-right: 8px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="logo.png.jpg" class="logo" alt="KFR Logo">
+    <img src="logo.png.jpg" alt="Kusha Logo">
     <h1>Kusha Family Restaurant</h1>
-    <p>Pure Veg | Since 2022</p>
-    <p><strong>Address:</strong> Mauhari Satna Panna Road, Near Mauhari Toll Plaza</p>
-    <p><strong>Timing:</strong> 10 AM – 2 PM</p>
+    <p>📍 Mauhari Satna Panna Road, Near Mauhari Toll Plaza</p>
+    <p>🕙 Timing: 10 AM Morning to 2 AM Night</p>
   </header>
 
-  <div class="menu-buttons">
-    <a href="thali.html">Thali</a>
-    <a href="daal.html">Daal</a>
-    <a href="sabji.html">Sabji</a>
-    <a href="paneer.html">Paneer</a>
-    <a href="rice.html">Rice</a>
-    <a href="papad.html">Papad</a>
-    <a href="roti.html">Roti</a>
-  </div>
+  <section class="menu" id="menu">
+    <div class="item">
+      <img src="https://source.unsplash.com/400x300/?indian-thali" alt="Thali">
+      <h3>Special Thali</h3>
+      <p>₹150</p>
+      <button onclick="addToCart('Special Thali',150)">Add</button>
+    </div>
+
+    <div class="item">
+      <img src="https://source.unsplash.com/400x300/?dal-tadka" alt="Daal Fry">
+      <h3>Daal Fry</h3>
+      <p>₹70</p>
+      <button onclick="addToCart('Daal Fry',70)">Add</button>
+    </div>
+
+    <div class="item">
+      <img src="https://source.unsplash.com/400x300/?paneer-butter-masala" alt="Paneer Butter Masala">
+      <h3>Paneer Butter Masala</h3>
+      <p>₹140</p>
+      <button onclick="addToCart('Paneer Butter Masala',140)">Add</button>
+    </div>
+
+    <div class="item">
+      <img src="https://source.unsplash.com/400x300/?roti" alt="Tandoori Roti">
+      <h3>Tandoori Roti</h3>
+      <p>₹20</p>
+      <button onclick="addToCart('Tandoori Roti',20)">Add</button>
+    </div>
+
+    <div class="item">
+      <img src="https://source.unsplash.com/400x300/?rice" alt="Plain Rice">
+      <h3>Plain Rice</h3>
+      <p>₹60</p>
+      <button onclick="addToCart('Plain Rice',60)">Add</button>
+    </div>
+
+    <div class="item">
+      <img src="https://source.unsplash.com/400x300/?papad" alt="Masala Papad">
+      <h3>Masala Papad</h3>
+      <p>₹20</p>
+      <button onclick="addToCart('Masala Papad',20)">Add</button>
+    </div>
+
+    <div class="item">
+      <img src="https://source.unsplash.com/400x300/?veg-curry" alt="Chhola Masala">
+      <h3>Chhola Masala</h3>
+      <p>₹100</p>
+      <button onclick="addToCart('Chhola Masala',100)">Add</button>
+    </div>
+  </section>
 
   <footer>
-    Home delivery available | Charge ₹50 only
+    <p>🏍 Home Delivery Available — ₹50 Only</p>
+    <p>© 2025 Kusha Family Restaurant | All Rights Reserved</p>
   </footer>
 
-  <a class="whatsapp" 
-     href="https://wa.me/918770473265?text=Hi%2C%20Kusha%20Family%20Restaurant!%20I%20want%20to%20place%20an%20order." 
-     target="_blank">💬 Order on WhatsApp</a>
+  <a id="whatsappLink" class="whatsapp-btn" href="#" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    Order on WhatsApp
+  </a>
+
+  <script>
+    let cart = [];
+    function addToCart(item, price) {
+      cart.push({item, price});
+      alert(item + " added to cart!");
+      updateWhatsAppLink();
+    }
+
+    function updateWhatsAppLink() {
+      let message = "Hi, Kusha Family Restaurant%0AI want to place an order:%0A";
+      let total = 0;
+      cart.forEach(c => {
+        message += - ${c.item}: ₹${c.price}%0A;
+        total += c.price;
+      });
+      message += %0ATotal: ₹${total}%0A%0AName:%0APhone:%0AAddress:%0AOrder Type: Home Delivery / Takeaway / Dine In;
+      document.getElementById("whatsappLink").href = 
+        https://wa.me/918770473265?text=${message};
+    }
+  </script>
 </body>
 </html>

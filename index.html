@@ -13,7 +13,14 @@ body {
   text-align: center;
 }
 header {
-  padding: 25px 10px;
+  padding: 10px 10px 20px 10px;
+}
+header img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 10px auto;
 }
 header h1 {
   margin: 5px 0;
@@ -31,7 +38,7 @@ header p {
 }
 .menu button {
   background: white;
-  color: #ff6f00;
+  color: #ff5722;
   border: none;
   padding: 15px 0;
   border-radius: 10px;
@@ -41,7 +48,7 @@ header p {
   transition: 0.2s;
 }
 .menu button:hover {
-  background: #fff3e0;
+  background: #ffe0b2;
 }
 .cart {
   position: fixed;
@@ -77,6 +84,7 @@ header p {
 <body>
 
 <header>
+  <img src="logo.png.jpg" alt="Kusha Family Restaurant Logo">
   <h1>Kusha Family Restaurant</h1>
   <p>Mauhari Satna-Panna Road, Near Mauhari Toll Plaza</p>
   <p>Timing: 10 AM Morning – 2 AM Night</p>
@@ -98,17 +106,15 @@ header p {
 
 <div class="cart">
   <div id="cartStatus">Cart: 0 Items | Total: ₹0</div>
-  <button onclick="orderNow()">Order Now</button>
+  <button onclick="window.open('https://wa.me/918770473265?text=Hello%20Kusha%20Family%20Restaurant!%20I%20want%20to%20place%20an%20order.', '_blank')">
+    Order on WhatsApp
+  </button>
 </div>
 
 <script>
 let total = localStorage.getItem("total") || 0;
 let items = localStorage.getItem("items") || 0;
 document.getElementById('cartStatus').innerText = Cart: ${items} Items | Total: ₹${total};
-
-function orderNow(){
-  window.open('https://wa.me/918770473265?text=Hello%20Kusha%20Family%20Restaurant!%20I%20want%20to%20place%20an%20order.', '_blank');
-}
 </script>
 
 </body>

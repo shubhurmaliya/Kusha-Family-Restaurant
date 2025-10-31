@@ -1,129 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kusha Family Restaurant | Satna Panna Road</title>
-  <link rel="icon" type="image/png" href="logo.png" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                  url('restaurant-bg.jpg') no-repeat center center/cover;
-      color: #fff;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-    }
-
-    header img {
-      width: 130px;
-      filter: drop-shadow(0 0 12px orange);
-    }
-
-    h1 {
-      margin-top: 10px;
-      font-size: 2.5rem;
-      color: #ffb703;
-      text-shadow: 0 0 10px #ffb703;
-    }
-
-    .timing {
-      font-size: 1rem;
-      color: #ffd166;
-      margin-bottom: 15px;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      background: rgba(255, 136, 0, 0.85);
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      background: #ffb703;
-      color: #222;
-      box-shadow: 0 0 15px #ffb703;
-    }
-
-    .whatsapp-order {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .whatsapp-order a {
-      display: inline-block;
-      background: #25d366;
-      color: white;
-      font-size: 1.1rem;
-      padding: 14px 30px;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 0 15px #25d366;
-      transition: 0.3s;
-    }
-
-    .whatsapp-order a:hover {
-      background: #1ebe5d;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.7);
-      font-size: 0.9rem;
-      color: #ddd;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      nav a { padding: 10px 16px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kusha Family Restaurant</title>
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #ffb74d, #ff6f00);
+  color: #fff;
+  text-align: center;
+}
+header {
+  background: rgba(255, 111, 0, 0.9);
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+header img {
+  height: 80px;
+  border-radius: 50%;
+}
+h1 { margin: 5px 0; font-size: 28px; }
+p { margin: 3px 0; }
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+.menu button {
+  background: white;
+  color: #ff6f00;
+  border: none;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+.menu button:hover {
+  background: #ffe0b2;
+  transform: scale(1.05);
+}
+.cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #4a2c00;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.cart-bar a {
+  background: #25D366;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.footer {
+  background: #3e2723;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+}
+</style>
 </head>
-
 <body>
-  <header>
-    <img src="logo.png" alt="Kusha Family Restaurant Logo">
-    <h1>Kusha Family Restaurant</h1>
-    <div class="timing">Open: 10 AM Morning to 2 AM Night</div>
-    <div>Pure Veg • Family • Dine In • Takeaway • Home Delivery</div>
-  </header>
 
-  <nav>
-    <a href="daal.html">Daal</a>
-    <a href="sabji.html">Sabji</a>
-    <a href="paneer.html">Paneer</a>
-    <a href="rice.html">Rice</a>
-    <a href="roti.html">Roti</a>
-    <a href="papad.html">Papad</a>
-    <a href="thali.html">Thali</a>
-  </nav>
+<header>
+  <img src="logo.png.jpg" alt="Logo">
+  <h1>Kusha Family Restaurant</h1>
+  <p>Mauhari Satna Panna Road, Near Mauhari Toll Plaza</p>
+  <p>Timing: 10 AM Morning – 2 AM Night</p>
+</header>
 
-  <div class="whatsapp-order">
-    <a href="https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant!%0AI%20want%20to%20place%20an%20order:%0A%5BItems%20%2B%20Total%5D%0AName:%0APhone:%0AAddress:%0AOrder%20Type:%20Home%20Delivery%20%2F%20Takeaway%20%2F%20Dine%20In"
-      target="_blank">
-      📦 Order Now on WhatsApp
-    </a>
-  </div>
+<div class="menu">
+  <button onclick="location.href='thali.html'">🥗 Thali</button>
+  <button onclick="location.href='daal.html'">🍲 Daal</button>
+  <button onclick="location.href='sabji.html'">🥘 Sabji</button>
+  <button onclick="location.href='paneer.html'">🧀 Paneer</button>
+  <button onclick="location.href='rice.html'">🍚 Rice</button>
+  <button onclick="location.href='roti.html'">🥯 Roti</button>
+  <button onclick="location.href='papad.html'">🍘 Papad</button>
+</div>
 
-  <footer>
-    © 2025 Kusha Family Restaurant | Satna Panna Road | All Rights Reserved
-  </footer>
+<div class="footer">
+  Home Delivery Available — ₹50 Only
+</div>
+
+<div class="cart-bar">
+  <div id="cart">Cart: 0 items | Total: ₹0</div>
+  <a id="whatsappLink" target="_blank">Order on WhatsApp</a>
+</div>
+
+<script>
+let total = 0, count = 0;
+function addItem(name, price) {
+  total += price;
+  count++;
+  document.getElementById('cart').innerText = Cart: ${count} items | Total: ₹${total};
+  updateWhatsAppLink();
+}
+
+function updateWhatsAppLink() {
+  const msg = Hi, Kusha Family Restaurant%0AI want to place an order:%0AItems: ${count}%0ATotal: ₹${total}%0AName:%0APhone:%0AAddress:%0AOrder Type: Home Delivery / Takeaway / Dine In;
+  document.getElementById('whatsappLink').href = https://wa.me/918770473265?text=${msg};
+}
+</script>
+
 </body>
 </html>

@@ -11,7 +11,7 @@ body {
   margin: 0;
 }
 header {
-  background: #ff9800;
+  background: #ff6f00;
   color: white;
   text-align: center;
   padding: 15px;
@@ -33,7 +33,7 @@ header {
   align-items: center;
 }
 button {
-  background: #ff9800;
+  background: #ff6f00;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -52,61 +52,61 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-.cart button {
-  background: #25d366;
-  border: none;
+a {
   color: white;
+  text-decoration: none;
+  background: #ff6f00;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.order-btn {
+  background: #25d366;
+  color: white;
+  border: none;
   padding: 8px 15px;
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
 }
-a {
-  color: white;
-  text-decoration: none;
-  background: #ff9800;
-  padding: 6px 12px;
-  border-radius: 8px;
-}
 </style>
 </head>
 <body>
-<header>Daal - Kusha Family Restaurant</header>
+
+<header>Daal Menu - Kusha Family Restaurant</header>
 
 <div class="menu">
-  <div class="item">
-    <h3>Daal Fry</h3><span>₹99</span>
-    <button onclick="add('Daal Fry',99)">Add</button>
-  </div>
-  <div class="item">
-    <h3>Daal Tadka</h3><span>₹109</span>
-    <button onclick="add('Daal Tadka',109)">Add</button>
-  </div>
+  <div class="item"><h3>Daal Fry</h3><span>₹89</span><button onclick="add('Daal Fry',89)">Add</button></div>
+  <div class="item"><h3>Daal Tadka</h3><span>₹99</span><button onclick="add('Daal Tadka',99)">Add</button></div>
 </div>
 
 <div class="cart">
   <div id="cartItems">Cart: 0 items | Total: ₹0</div>
-  <button onclick="orderNow()">Order Now</button>
+  <button class="order-btn" onclick="orderNow()">Order Now</button>
 </div>
 
 <script>
-let total = Number(localStorage.getItem("total")) || 0;
-let count = Number(localStorage.getItem("items")) || 0;
+let total = parseInt(localStorage.getItem('total')) || 0;
+let count = parseInt(localStorage.getItem('count')) || 0;
+let items = JSON.parse(localStorage.getItem('items')) || [];
 
 function add(name, price) {
   total += price;
   count++;
-  localStorage.setItem("total", total);
-  localStorage.setItem("items", count);
+  items.push({name, price});
+  localStorage.setItem('total', total);
+  localStorage.setItem('count', count);
+  localStorage.setItem('items', JSON.stringify(items));
   document.getElementById('cartItems').innerText = Cart: ${count} items | Total: ₹${total};
 }
 
-function orderNow() {
-  let msg = Hello Kusha Family Restaurant! I want to place an order.\nTotal: ₹${total};
-  window.open(https://wa.me/918770473265?text=${encodeURIComponent(msg)}, '_blank');
-}
-
 document.getElementById('cartItems').innerText = Cart: ${count} items | Total: ₹${total};
+
+function orderNow() {
+  let orderText = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
+  let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderText}%0ATotal:%20₹${total};
+  window.open(url, '_blank');
+}
 </script>
+
 </body>
 </html>

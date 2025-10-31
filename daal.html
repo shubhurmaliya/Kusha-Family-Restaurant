@@ -16,23 +16,12 @@ header {
   text-align: center;
   padding: 15px;
   font-size: 24px;
-  position: relative;
-}
-header img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .menu {
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 20px;
-  margin-top: 80px;
 }
 .item {
   background: white;
@@ -77,13 +66,21 @@ button {
 <body>
 
 <header>
-  <img src="logo.png.jpg" alt="Kusha Family Restaurant Logo">
-  <div>Daal Menu - Kusha Family Restaurant</div>
+  Daal Menu - Kusha Family Restaurant
 </header>
 
 <div class="menu">
-  <div class="item"><h3>Daal Fry</h3><span>₹129</span><button onclick="add('Daal Fry',129)">Add</button></div>
-  <div class="item"><h3>Daal Tadka</h3><span>₹149</span><button onclick="add('Daal Tadka',149)">Add</button></div>
+  <div class="item">
+    <h3>Daal Fry</h3>
+    <span>₹89</span>
+    <button onclick="add('Daal Fry', 89)">Add</button>
+  </div>
+
+  <div class="item">
+    <h3>Daal Tadka</h3>
+    <span>₹99</span>
+    <button onclick="add('Daal Tadka', 99)">Add</button>
+  </div>
 </div>
 
 <div class="cart">
@@ -96,8 +93,8 @@ let total = 0;
 let count = 0;
 let items = [];
 
-// Page load hone par purane data wapas lao
-if(localStorage.getItem("cartData")){
+// Load existing cart from localStorage
+if (localStorage.getItem("cartData")) {
   const cart = JSON.parse(localStorage.getItem("cartData"));
   total = cart.total;
   count = cart.count;
@@ -105,23 +102,26 @@ if(localStorage.getItem("cartData")){
   updateCart();
 }
 
-// Add item
-function add(name, price){
+// Add item to cart
+function add(name, price) {
   total += price;
   count++;
-  items.push({name, price});
-  localStorage.setItem("cartData", JSON.stringify({total, count, items}));
+  items.push({ name, price });
+  localStorage.setItem("cartData", JSON.stringify({ total, count, items }));
   updateCart();
 }
 
 // Update cart display
-function updateCart(){
+function updateCart() {
   document.getElementById("cartItems").innerText = Cart: ${count} items | Total: ₹${total};
 }
 
-// WhatsApp order
-function orderNow(){
-  if(items.length === 0){ alert("Please add items first!"); return; }
+// WhatsApp Order
+function orderNow() {
+  if (items.length === 0) {
+    alert("Please add items first!");
+    return;
+  }
   let orderList = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
   let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${total};
   window.open(url, '_blank');

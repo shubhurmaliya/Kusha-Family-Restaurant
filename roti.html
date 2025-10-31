@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roti Menu - Kusha Family Restaurant</title>
+  <style>
+    body {font-family:'Poppins',sans-serif;background-color:#fff3e0;margin:0;}
+    header {background:#ff6f00;color:white;text-align:center;padding:15px;font-size:24px;}
+    .menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;padding:20px;}
+    .item{background:white;border-radius:12px;padding:15px;box-shadow:0 2px 5px rgba(0,0,0,0.2);display:flex;justify-content:space-between;align-items:center;}
+    button{background:#ff6f00;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;}
+    button:hover{background:#e65c00;}
+    .cart{position:fixed;bottom:0;left:0;right:0;background:#4a2c00;color:white;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;}
+    a{color:white;text-decoration:none;background:#ff6f00;padding:6px 12px;border-radius:8px;}
+  </style>
+</head>
+<body>
+<header>Kusha Family Restaurant - Roti Menu</header>
+<div class="menu">
+  <div class="item"><h3>Tandoori Roti</h3><span>₹15</span><button onclick="add('Tandoori Roti',15)">Add</button></div>
+  <div class="item"><h3>Tandoori Butter Roti</h3><span>₹20</span><button onclick="add('Tandoori Butter Roti',20)">Add</button></div>
+  <div class="item"><h3>Tawa Roti</h3><span>₹15</span><button onclick="add('Tawa Roti',15)">Add</button></div>
+  <div class="item"><h3>Tawa Butter Roti</h3><span>₹20</span><button onclick="add('Tawa Butter Roti',20)">Add</button></div>
+  <div class="item"><h3>Naan Roti</h3><span>₹45</span><button onclick="add('Naan Roti',45)">Add</button></div>
+  <div class="item"><h3>Naan Butter</h3><span>₹55</span><button onclick="add('Naan Butter',55)">Add</button></div>
+  <div class="item"><h3>Lacchha Paratha</h3><span>₹45</span><button onclick="add('Lacchha Paratha',45)">Add</button></div>
+  <div class="item"><h3>Missi Roti</h3><span>₹35</span><button onclick="add('Missi Roti',35)">Add</button></div>
+  <div class="item"><h3>Aaloo Paratha</h3><span>₹55</span><button onclick="add('Aaloo Paratha',55)">Add</button></div>
+  <div class="item"><h3>Paneer Paratha</h3><span>₹75</span><button onclick="add('Paneer Paratha',75)">Add</button></div>
+</div>
+<div class="cart">
+  <div id="cartItems">Cart: 0 items | Total: ₹0</div>
+  <a href="index.html">Back</a>
+</div>
+<script>
+let total=0,count=0;
+function add(name,price){total+=price;count++;document.getElementById('cartItems').innerText=Cart: ${count} items | Total: ₹${total};}
+</script>
+</body>
+</html>

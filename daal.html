@@ -68,8 +68,8 @@ button {
 <header>Daal Menu - Kusha Family Restaurant</header>
 
 <div class="menu">
-  <div class="item"><h3>Daal Fry</h3><span>₹129</span><button onclick="add('Daal Fry',89)">Add</button></div>
-  <div class="item"><h3>Daal Tadka</h3><span>₹149</span><button onclick="add('Daal Tadka',99)">Add</button></div>
+  <div class="item"><h3>Daal Fry</h3><span>₹89</span><button onclick="add('Daal Fry',89)">Add</button></div>
+  <div class="item"><h3>Daal Tadka</h3><span>₹99</span><button onclick="add('Daal Tadka',99)">Add</button></div>
 </div>
 
 <div class="cart">
@@ -82,7 +82,7 @@ let total = 0;
 let count = 0;
 let items = [];
 
-// Page load hone par purane data wapas lao
+// Purana cart load karo
 if(localStorage.getItem("cartData")){
   const cart = JSON.parse(localStorage.getItem("cartData"));
   total = cart.total;
@@ -91,7 +91,7 @@ if(localStorage.getItem("cartData")){
   updateCart();
 }
 
-// Add item
+// Add function
 function add(name, price){
   total += price;
   count++;
@@ -100,16 +100,16 @@ function add(name, price){
   updateCart();
 }
 
-// Update cart display
+// Update cart
 function updateCart(){
   document.getElementById("cartItems").innerText = Cart: ${count} items | Total: ₹${total};
 }
 
-// WhatsApp order
+// WhatsApp Order
 function orderNow(){
-  if(items.length === 0){ 
-    alert("Please add items first!"); 
-    return; 
+  if(items.length === 0){
+    alert("Please add items first!");
+    return;
   }
   let orderList = items.map(i => ${i.name} - ₹${i.price}).join('%0A');
   let url = https://wa.me/918770473265?text=Hi%20Kusha%20Family%20Restaurant,%0AI%20want%20to%20place%20an%20order:%0A${orderList}%0A%0ATotal:%20₹${total};

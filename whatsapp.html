@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting to WhatsApp</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting to WhatsApp...</title>
   <style>
     body {
-      background-color: #fff6f0;
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 100px;
-      color: #333;
+      background-color: #fff;
     }
     h2 {
-      color: #075E54;
+      color: green;
     }
     p {
-      font-size: 18px;
+      color: #555;
     }
   </style>
 </head>
@@ -25,35 +24,21 @@
   <p>Please wait, redirecting you to WhatsApp to send your order.</p>
 
   <script>
-    const name = localStorage.getItem("cust_name") || "";
-    const address = localStorage.getItem("cust_address") || "";
-    const mobile = localStorage.getItem("cust_mobile") || "";
-    const note = localStorage.getItem("cust_note") || "";
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const total = localStorage.getItem("total") || 0;
+    // 👇 Apna WhatsApp number likho (country code ke sath, bina + ke)
+    const phoneNumber = "918770473265"; // Example: 918770473265
 
-    const whatsappNumber = "918770473265";
+    // 👇 Ye message customize kar sakte ho
+    const message = encodeURIComponent(
+      "Hello! I want to place an order from Kusha Family Restaurant 🍛"
+    );
 
-    // Create the WhatsApp message
-    const message = 
-`*🍛 Kusha Family Restaurant Order 🍛*
+    // WhatsApp redirect link
+    const whatsappURL = https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message};
 
-Customer: ${name}
-Mobile: ${mobile}
-Address: ${address}
-
-Items Ordered:
-${cart.join("\n")}
-
-Total: ₹${total}
-
-${note ? "Note: " + note + "\n\n" : ""}Thank you for ordering with Kusha Family Restaurant! 🙏`;
-
-    // Redirect after short delay (2 sec)
+    // 1 second wait karke redirect karega
     setTimeout(() => {
-      const url = https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)};
-      window.location.href = url;
-    }, 2000);
+      window.location.href = whatsappURL;
+    }, 1000);
   </script>
 </body>
 </html>

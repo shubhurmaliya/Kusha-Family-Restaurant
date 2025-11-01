@@ -1,51 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting to WhatsApp...</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting to WhatsApp</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
+      background: #fff7e6;
+      flex-direction: column;
     }
-    h1 {
-      color: #25D366;
-    }
-    p {
-      color: #333;
+    h2 {
+      color: #ff6600;
     }
   </style>
 </head>
 <body>
-  <h1>Opening WhatsApp...</h1>
+  <h2>Opening WhatsApp...</h2>
   <p>Please wait, redirecting you to WhatsApp to send your order.</p>
 
   <script>
-    // ✅ WhatsApp number with country code (without +)
-    const phoneNumber = "918770473265"; // Change if needed
+    // 👇 Yeh number apna WhatsApp number likhna hai (country code ke saath)
+    const phoneNumber = "919876543210"; // example: 91 + 10-digit number
 
-    // ✅ Order message text
-    const message = encodeURIComponent("Hello! I want to place an order from Kusha Family Restaurant.");
+    // 👇 Yeh message aap customize kar sakte ho
+    const message = `Hello Kusha Family Restaurant! 
+I want to place an order:
+1. Paneer Butter Masala - ₹180
+2. Tandoori Roti (2 pcs) - ₹40
+Total: ₹220`;
 
-    // ✅ Detect device type
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    // WhatsApp redirect link
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = https://wa.me/${phoneNumber}?text=${encodedMessage};
 
-    // ✅ Choose correct WhatsApp URL
-    const whatsappURL = isMobile
-      ? https://wa.me/${phoneNumber}?text=${message}       // Mobile app
-      : https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}; // Laptop
-
-    // ✅ Redirect after small delay
+    // Redirect automatically after 2 seconds
     setTimeout(() => {
       window.location.href = whatsappURL;
-    }, 1500);
+    }, 2000);
   </script>
 </body>
 </html>

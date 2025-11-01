@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Redirecting to WhatsApp...</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-      background-color: #fff;
-    }
-    h2 {
-      color: green;
-    }
-    p {
-      color: #555;
-    }
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; background:#fff; }
+    h2 { color: #2a9d40; }
+    p { color:#555; }
+    small { color:#999; display:block; margin-top:20px; }
   </style>
 </head>
 <body>
   <h2>Opening WhatsApp...</h2>
   <p>Please wait, redirecting you to WhatsApp to send your order.</p>
+  <small>If nothing happens automatically, click the button below.</small>
+
+  <p><button id="openBtn" style="padding:8px 14px; border-radius:6px; cursor:pointer;">Open WhatsApp</button></p>
 
   <script>
-    // 👇 Apna WhatsApp number likho (country code ke sath, bina + ke)
-    const phoneNumber = "918770473265"; // Example: 918770473265
+    (function(){
+      try {
+        // --- CHANGE THIS number if you want (country code WITHOUT '+') ---
+        var phoneNumber = "918770473265"; // example: 918770473265
 
-    // 👇 Ye message customize kar sakte ho
-    const message = encodeURIComponent(
-      "Hello! I want to place an order from Kusha Family Restaurant 🍛"
-    );
+        // --- Customize message text below ---
+        var plainText = "Hello! I want to place an order from Kusha Family Restaurant \uD83C\uDF5B";
+        // encode the message for use in URL
+        var encoded = encodeURIComponent(plainText);
 
-    // WhatsApp redirect link
-    const whatsappURL = https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message};
+        // Build URL using string concatenation (no backticks)
+        var whatsappURL = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encoded;
 
-    // 1 second wait karke redirect karega
-    setTimeout(() => {
-      window.location.href = whatsappURL;
-    }, 1000);
+        // For debugging - print to console
+        console.log("WhatsApp URL ->", whatsappURL);
+
+        // Auto-redirect after short delay
+        setTimeout(function(){
+          // Try replace first (same tab). If browser blocks, fallback to open in new tab.
+          try {
+            window.location.href = whatsappURL;
+          } catch (e) {
+            window.open(whatsappURL, "_blank");
+          }
+        }, 900);
+
+        // Also attach to button for manual click
+        document.getElementById("openBtn").addEventListener("click", function(){
+          window.open(whatsappURL, "_blank");
+        });
+      } catch (err) {
+        // Show error in console and on page
+        console.error("Redirect script error:", err);
+        var info = document.createElement("div");
+        info.style.color = "red";
+        info.style.marginTop = "20px";
+        info.innerText = "Error: " + (err && err.message ? err.message : "unknown");
+        document.body.appendChild(info);
+      }
+    })();
   </script>
 </body>
 </html>

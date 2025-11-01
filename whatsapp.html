@@ -28,16 +28,21 @@
   <p>Please wait, redirecting you to WhatsApp to send your order.</p>
 
   <script>
-    // ✅ Replace this with your restaurant's WhatsApp number
-    const phoneNumber = "918770473265"; 
+    // ✅ WhatsApp number with country code (without +)
+    const phoneNumber = "918770473265"; // Change if needed
 
-    // ✅ Replace this message with your desired order text
+    // ✅ Order message text
     const message = encodeURIComponent("Hello! I want to place an order from Kusha Family Restaurant.");
 
-    // ✅ Construct WhatsApp URL
-    const whatsappURL = https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message};
+    // ✅ Detect device type
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    // ✅ Wait a moment, then redirect
+    // ✅ Choose correct WhatsApp URL
+    const whatsappURL = isMobile
+      ? https://wa.me/${phoneNumber}?text=${message}       // Mobile app
+      : https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}; // Laptop
+
+    // ✅ Redirect after small delay
     setTimeout(() => {
       window.location.href = whatsappURL;
     }, 1500);

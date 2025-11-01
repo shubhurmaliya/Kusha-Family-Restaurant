@@ -1,104 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daal Menu - Kusha Family Restaurant</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: #ffebe1;
+      background: #fff3e6;
       margin: 0;
+      padding-bottom: 80px;
     }
-
     header {
       background: #a00000;
       color: white;
       text-align: center;
       padding: 15px;
-      font-size: 24px;
+      font-size: 22px;
+      font-weight: bold;
     }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      padding: 20px;
-    }
-
-    .item {
-      background: white;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    .menu-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: white;
+      margin: 15px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
     button {
-      background: #a00000;
+      background-color: #a00000;
       color: white;
       border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
+      padding: 6px 12px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
     }
-
     button:hover {
-      background: #c20000;
+      background-color: #c40000;
     }
-
-    .cart {
+    #cart-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      background: #4b1c1c;
+      background-color: #4b1c1c;
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 18px;
     }
-
     .order-btn {
-      background: #ffc107;
+      background-color: #ffc107;
       color: black;
-      padding: 8px 14px;
       border: none;
-      border-radius: 6px;
+      padding: 8px 14px;
+      border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
     }
-
     .order-btn:hover {
-      background: #ffca28;
+      background-color: #ffca28;
     }
   </style>
 </head>
 <body>
 
-  <header>Daal Menu - Kusha Family Restaurant</header>
+  <header>🍛 Kusha Family Restaurant 🍛<br>Musafirkhana Satna–Panna Road | Timing: 10 AM – 2 AM</header>
 
-  <div class="menu">
-    <div class="item">
-      <span>Daal Fry</span>
-      <span>₹119</span>
-      <button onclick="addToCart('Daal Fry', 129)">Add</button>
-    </div>
-    <div class="item">
-      <span>Daal Tadka</span>
-      <span>₹119</span>
-      <button onclick="addToCart('Daal Tadka', 149)">Add</button>
-    </div>
+  <div class="menu-item">
+    <span>Daal Fry</span>
+    <span>₹119</span>
+    <button onclick="addToCart('Daal Fry', 119)">Add</button>
   </div>
 
-  <div class="cart">
-    <div>Cart: <span id="cart-count">0</span> Items | Total: <span id="cart-total">₹0</span></div>
-    <button class="order-btn" onclick="orderNow()">Order Now</button>
+  <div class="menu-item">
+    <span>Daal Tadka</span>
+    <span>₹129</span>
+    <button onclick="addToCart('Daal Tadka', 129)">Add</button>
+  </div>
+
+  <div id="cart-bar">
+    <span id="cart-text">Cart: 0 Items | Total: ₹0</span>
+    <button class="order-btn" onclick="goToOrder()">Place Order</button>
   </div>
 
   <script>
@@ -108,18 +96,19 @@
     function addToCart(name, price) {
       cart.push({ name, price });
       total += price;
-      document.getElementById("cart-count").textContent = cart.length;
-      document.getElementById("cart-total").textContent = "₹" + total;
+      document.getElementById("cart-text").innerText =
+        "Cart: " + cart.length + " Items | Total: ₹" + total;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("total", total);
     }
 
-    function orderNow() {
+    function goToOrder() {
       if (cart.length === 0) {
-        alert("Please add some items first!");
-      } else {
-        alert("Your order for " + cart.length + " items (Total ₹" + total + ") has been placed!");
+        alert("🛒 Please add items before ordering!");
+        return;
       }
+      window.location.href = "order.html";
     }
   </script>
-
 </body>
 </html>

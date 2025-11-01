@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting to WhatsApp</title>
+  <style>
+    body {
+      background-color: #fff6f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      color: #333;
+    }
+    h2 {
+      color: #075E54;
+    }
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Opening WhatsApp...</h2>
+  <p>Please wait, redirecting you to WhatsApp to send your order.</p>
+
+  <script>
+    const name = localStorage.getItem("cust_name") || "";
+    const address = localStorage.getItem("cust_address") || "";
+    const mobile = localStorage.getItem("cust_mobile") || "";
+    const note = localStorage.getItem("cust_note") || "";
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const total = localStorage.getItem("total") || 0;
+
+    const whatsappNumber = "918770473265";
+
+    // Create the WhatsApp message
+    const message = 
+`*🍛 Kusha Family Restaurant Order 🍛*
+
+Customer: ${name}
+Mobile: ${mobile}
+Address: ${address}
+
+Items Ordered:
+${cart.join("\n")}
+
+Total: ₹${total}
+
+${note ? "Note: " + note + "\n\n" : ""}Thank you for ordering with Kusha Family Restaurant! 🙏`;
+
+    // Redirect after short delay (2 sec)
+    setTimeout(() => {
+      const url = https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)};
+      window.location.href = url;
+    }, 2000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kusha Family Restaurant - Order Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff6f0;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #a00000;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #a00000;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: #ffc107;
+      color: black;
+      border: none;
+      padding: 12px;
+      margin-top: 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #ffca28;
+    }
+
+    .back-btn {
+      background-color: gray;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>🍛 Kusha Family Restaurant 🍛</header>
+  <h2>🧾 Enter Your Order Details</h2>
+
+  <label for="name">Full Name</label>
+  <input type="text" id="name" placeholder="Enter your name" required />
+
+  <label for="address">Full Address</label>
+  <input type="text" id="address" placeholder="Enter delivery address" required />
+
+  <label for="mobile">Mobile Number</label>
+  <input type="text" id="mobile" placeholder="Enter your mobile number" required />
+
+  <label for="note">Special Instructions</label>
+  <textarea id="note" rows="3" placeholder="(Optional) e.g. Less spicy, extra roti..."></textarea>
+
+  <button class="btn" onclick="sendOrder()">Send Order on WhatsApp</button>
+  <button class="btn back-btn" onclick="goBack()">⬅ Back to Menu</button>
+
+  <script>
+    // Get order data from localStorage (saved from daal.html)
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const total = localStorage.getItem("total") || 0;
+
+    function sendOrder() {
+      const name = document.getElementById("name").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      const note = document.getElementById("note").value.trim();
+
+      if (!name || !address || !mobile) {
+        alert("⚠ Please fill all details!");
+        return;
+      }
+
+      // Save details in localStorage for next page (whatsapp.html)
+      localStorage.setItem("cust_name", name);
+      localStorage.setItem("cust_address", address);
+      localStorage.setItem("cust_mobile", mobile);
+      localStorage.setItem("cust_note", note);
+
+      // Redirect to WhatsApp redirect page
+      window.location.href = "whatsapp.html";
+    }
+
+    function goBack() {
+      window.location.href = "daal.html";
+    }
+  </script>
+</body>
+</html>
